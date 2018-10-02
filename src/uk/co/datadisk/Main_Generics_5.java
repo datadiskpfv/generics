@@ -23,7 +23,7 @@ public class Main_Generics_5 {
         }
 
         // Even through Shape is an object you cannot add an object to a Shape collection because
-        // A collection of shapes is not the same as a collection of objects
+        // A collection of Shape's is not the same as a collection of Object's
         // Collection<Shape> != Collection<Object>
         // but Shape is instanceOf Object
 

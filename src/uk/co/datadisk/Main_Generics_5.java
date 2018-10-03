@@ -37,9 +37,9 @@ public class Main_Generics_5 {
         consumer(shapes);
     }
 
-    // UPPER BOUND
+    // UPPER BOUND (reading)
     private static void producer(List<? extends Shape> shapes) {
-        // Producer: uses the extends keyword and thus you can list but you cannot add to the list
+        // Producer: uses the extends keyword and thus you can read a list but you cannot add to the list
 
         // Unable to add to the list
         //Shape c1 = new Circle();
@@ -51,18 +51,18 @@ public class Main_Generics_5 {
         }
     }
 
-    // LOWER BOUND
+    // LOWER BOUND (adding)
     private static void consumer(List<? super Shape> shapes){
-        //Consumer: uses the super keyword and thus you can add but you cannot use any methods of the class (only Object methods)
+        //Consumer: uses the super keyword and thus you can add to the list but you cannot use any methods of the Shape class (only Object methods)
 
         // You are free to add to the list
         Shape c1 = new Circle();
         shapes.add(c1);
 
-        // Here i am cheating as i am using a Object method, but no Shape methods are available because
+        // Here I am cheating as I am using a Object method, but no Shape methods are available because
         // its of type Object
-        for (Object shape : shapes){
-            System.out.println(shape.toString());
+        for (Object shape : shapes){                    // the lower bound will stop you using - Shape shape : shapes
+            System.out.println(shape.toString());       // Shape methods are not available because its an Object
         }
     }
 }
